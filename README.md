@@ -1,11 +1,11 @@
 # SurveyDIY - frontend
-COMP229 Project Group 3 - Survey DIY
-Sxx Mxx Txxx
-Wing Yan Lau
-Hxxxxxx Hxxxxxx
-Kxxxxxxx Dxxx
-Axxxx Fxxxxxx Cxxx Bxxxxxx
-Vxxxx Bxxxxxx Txxxxxx
+COMP229 Project Group 3 - Survey DIY  
+Sxx Mxx Txxx  
+Wing Yan Lau  
+Hxxxxxx Hxxxxxx  
+Kxxxxxxx Dxxx  
+Axxxx Fxxxxxx Cxxx Bxxxxxx  
+Vxxxx Bxxxxxx Txxxxxx  
 
 # Website
 http://surveydiy.herokuapp.com/
