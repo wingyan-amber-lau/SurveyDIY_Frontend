@@ -1,0 +1,69 @@
+<!--
+  
+  SurveyDIY
+Sze Man Tang	301221595	
+Vikas Bhargav Trivedi	301217554	
+Angel Fortino Cruz Benitez	301238011	
+Hussein Hussein	301017560	
+Wing Yan Lau	301229696
+Kanishka Dhir	301220757
+
+Displays the statistics of the surveys, aka number of responses per question
+-->
+<app-header [title] ="title"></app-header>
+ <!-- Main Content -->
+  <main class="container">
+    <div class="row">
+        <h1>{{ title }}</h1>
+        <br>
+        <div *ngIf="processing; else showResponse">
+            Processing...Please wait...
+        </div>
+        <ng-template #showResponse>
+            <ng-container *ngIf="noResponse; else listResponse">
+                <div>
+                    No responses.
+                    <br>
+                    <a href="javascript:history.back()" class="btn btn-warning">
+                        <i class="fas fa-undo"></i> 
+                        Back
+                    </a>
+                </div>
+            </ng-container>
+        </ng-template> 
+        <ng-template #listResponse>
+
+            <td class="text-center">
+                <a (click)="printThisPage()" class="btn btn-primary btn-sm" alt=">Print This Page">
+                <i class="fas fa-print"></i></a>
+            </td>
+            <br>
+            <div class="table-responsive">
+                Number of Total Responds: {{respondStatistic[0]? respondStatistic[0].surveyStatistics[0].numOfSurveyResponds: 0}}
+                <table class="table table-bordered table-striped table-hover">
+                    <!-- Header Row-->
+                    <tr>
+                        <th class="text-center">Question</th>
+                        <th class="text-center">Answer</th>
+                        <th class="text-center">Number of Responds</th>
+                    </tr>
+                    <tr *ngFor="let respondstatistic of respondStatistic[0]?.respondStatistics; let i = index">
+                        <!-- <ng-container *ngFor="let respondstatisticid of respondStatistic[0].respondStatistics[i]"> -->
+                            <td class="text-center">{{respondStatistic[0].respondStatistics[i]._id.questionText}}</td>
+                            <td class="text-center">{{respondStatistic[0].respondStatistics[i]._id.answer}}</td>
+                        <!-- </ng-container> -->
+                        <td class="text-center">{{respondStatistic[0].respondStatistics[i].numOfResponds}}</td>
+                    </tr>
+                    <!-- Repeatable Template Row -->
+                </table>
+                <a href="javascript:history.back()" class="btn btn-warning">
+                    <i class="fas fa-undo"></i> 
+                    Back
+                </a>
+            </div>
+        </ng-template> 
+    </div>
+    
+</main>
+<app-footer [title] ="title"></app-footer>
+<router-outlet name="print"></router-outlet>
